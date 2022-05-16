@@ -1,21 +1,11 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
-    <meta charset="utf-8">
-    <title>Recipes</title>
-  </head>
-  <body>
-    {% if recipe_list %}
-    <ul>
-    {% for recipe in recipe_list %}
-    <li><a href="{% url 'recipe:detail' recipe.id %}">{{ recipe.title }}</a></li>
-    {% endfor %}
-    </ul>
-    {% else %}
-        <p>No recipes available.</p>
-    {% endif %}
-  </body>
-</html>
+{% extends "./base.html" %} {% block title %}{{"Recipe list"}}{% endblock %} {%
+block header %}{{"Recipe list"}}{% endblock %} {% block content %} {% if
+recipe_list %}
+<ul>
+  {% for recipe in recipe_list %}
+  <li><a href="{% url 'recipe:detail' recipe.id %}">{{ recipe.title }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No recipes available.</p>
+{% endif %} {% endblock %}

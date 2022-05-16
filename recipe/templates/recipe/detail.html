@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-  <body>
-    <div>
-      <h1>{{recipe.title}}</h1>
-      <p>{{recipe.comments}}</p>
-      <a href="{% url 'recipe:index' %}">Back</a>
-      <a href="{% url 'recipe:edit' recipe.id %}">Modify</a>
-    </div>
-  </body>
-</html>
+{% extends "./base.html" %}
+
+{% block title %}{{recipe.title}}{% endblock %}
+{% block header %}{{recipe.title}}{% endblock %}
+{% block content %}
+  <div>
+    <p>{{recipe.comments}}</p>
+    <a href="{% url 'recipe:index' %}">Back</a>
+    <a href="{% url 'recipe:edit' recipe.id %}">Modify</a>
+  </div>
+{% endblock %}
