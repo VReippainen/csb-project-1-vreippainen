@@ -13,7 +13,7 @@ class Profile(models.Model):
 class Recipe(models.Model):
     title = models.CharField(max_length=MAX_LENGTH)
     url = models.CharField(max_length=MAX_LENGTH)
-    comments = models.CharField(max_length=MAX_LENGTH)
+    comments = models.CharField(max_length=MAX_LENGTH, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey(

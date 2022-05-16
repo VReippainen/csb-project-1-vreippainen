@@ -8,6 +8,8 @@ selenium = "*"
 requests = "*"
 beautifulsoup4 = "*"
 django = "==4.0.1"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 black = "*"

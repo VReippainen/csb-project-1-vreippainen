@@ -1,7 +1,12 @@
-{% extends "./base.html" %} {% block title %}{{"Edit recipe"}}{% endblock %} {%
-block header %}{{"Edit recipe"}}{% endblock %} {% block content %}
+{% extends "./base.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}{{"Edit recipe"}}{% endblock %}
+{% block header %}{{"Edit recipe"}}{% endblock %}
+{% block content %}
 <form action="{% url 'recipe:edit'  recipe_id %}" method="post">
-  {% csrf_token %} {{form}}
+  {% csrf_token %}
+  {{ form|crispy }}
   <input type="submit" value="Save" />
 </form>
 {% endblock %}
