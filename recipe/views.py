@@ -43,10 +43,10 @@ def edit(request, pk):
             recipe.title = form.cleaned_data['title']
             recipe.comments = form.cleaned_data['comments']
             recipe.save()
-            return HttpResponseRedirect(reverse('recipe:detail', args=(recipe_id)))
+            return HttpResponseRedirect(reverse('recipe:detail', kwargs={'pk': recipe_id}))
     else:
         form = RecipeForm(instance=recipe)
-        return render(request, 'recipe/add.html', {'form': form})
+        return render(request, 'recipe/edit.html', {'form': form, "recipe_id": recipe_id})
     
 @login_required
 def add(request):
