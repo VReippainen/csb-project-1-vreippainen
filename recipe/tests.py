@@ -44,6 +44,10 @@ def create_recipe_by_index(index: int):
 
 
 class RecipeIndexViewTests(TestCase):
+    # @classmethod
+    # def setUpTestData(cls):
+    #     create_user()
+
     def setUp(self):
         create_user()
         login(self.client)
