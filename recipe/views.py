@@ -7,6 +7,7 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from recipe.utils.scraper import scrape_reciped
+import logging
 
 
 def get_active_recipes():
@@ -27,6 +28,7 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Recipe
     template_name = "recipe/detail.html"
+    logger = logging.getLogger(__name__)
 
     def get_queryset(self):
         """
@@ -37,8 +39,12 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         url = context["object"].url
-        metadata = scrape_reciped(url)
-        context["metadata"] = metadata
+        try:
+            metadata = scrape_reciped(url)
+            context["metadata"] = metadata
+        except:
+            self.logger.warning("Scraping following url failed %s" % url)
+
         return context
 
 
