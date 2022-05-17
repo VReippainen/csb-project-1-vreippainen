@@ -1,7 +1,7 @@
 {% extends "./base.html" %}
 
-{% block title %}{{"Recipe list"}}{% endblock %}
-{% block header %}{{"Recipe list"}}{% endblock %}
+{% block title %}{{"Reseptit"}}{% endblock %}
+{% block header %}{{"Reseptit"}}{% endblock %}
 {% block content %}
 {% if recipe_list %}
 <ul>
@@ -10,6 +10,6 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>No recipes available.</p>
+<p>Ei reseptejä.</p>
 {% endif %}
 {% endblock %}

@@ -6,3 +6,4 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ["title", "url", "comments"]
+        labels = {"title": "Nimi", "comments": "Kommentit", "url": "URL"}

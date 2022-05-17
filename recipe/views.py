@@ -6,6 +6,7 @@ from recipe.models import Recipe, Profile
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from recipe.utils.scraper import scrape_json_ld
 
 
 def get_active_recipes():
@@ -32,6 +33,13 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
         Excludes inactive recipes.
         """
         return get_active_recipes()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        url = context["object"].url
+        metadata = scrape_json_ld(url)
+        context["metadata"] = metadata
+        return context
 
 
 @login_required
