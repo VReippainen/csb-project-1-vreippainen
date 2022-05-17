@@ -12,4 +12,6 @@
 {% else %}
 <p>Ei reseptejä.</p>
 {% endif %}
+<a role="button" href="{% url 'recipe:add' %}" class="btn btn-primary">Lisää uusi resepti</a>
+</div>
 {% endblock %}

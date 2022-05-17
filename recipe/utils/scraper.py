@@ -32,8 +32,30 @@ def _get_json_ld(html, url):
         return {}
 
 
-def scrape_json_ld(url):
+def _formatInstructions(instructions):
+    if isinstance(instructions, str):
+        return instructions.split("\n")
+    elif isinstance(instructions, list):
+        return list(map(lambda inst: inst["text"], instructions))
+    return list()
+
+
+def _formatImage(img_src):
+    if isinstance(img_src, str):
+        return img_src
+    elif isinstance(img_src, list) and len(img_src) > 0:
+        return img_src[0]
+    return None
+
+
+def scrape_reciped(url):
     """Parse structured data from a target page."""
     html = _get_html(url)
     metadata = _get_json_ld(html, url)
+    if "recipeInstructions" in metadata:
+        metadata["recipeInstructions"] = _formatInstructions(
+            metadata["recipeInstructions"]
+        )
+    if "image" in metadata:
+        metadata["image"] = _formatImage(metadata["image"])
     return metadata

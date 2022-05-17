@@ -4,17 +4,20 @@
 {% block header %}{{recipe.title}}{% endblock %}
 {% block content %}
 <div>
+  {% if metadata.image %}
+  <img src={{metadata.image}} width='100%' />
+  {% endif %}
   <h3>Kuvaus</h3>
   <p>{{metadata.description}}</p>
 
 
-  {% if  metadata.recipeYield %}
+  {% if metadata.recipeYield %}
   <h3>Annoskoko</h3>
   <p>{{metadata.recipeYield }}</p>
   {% endif %}
 
   <h3>Ainekset</h3>
-  {% if  metadata.recipeIngredient %}
+  {% if metadata.recipeIngredient %}
   <ul>
     {% for ingredient in metadata.recipeIngredient %}
     <li>{{ingredient}}</li>
@@ -25,8 +28,10 @@
   {% endif %}
 
   <h3>Ohjeet</h3>
-  {% if  metadata.recipeInstructions %}
-  <p>{{metadata.recipeInstructions | linebreaks }}</p>
+  {% if metadata.recipeInstructions %}
+  <ul {% for instruction in metadata.recipeInstructions %} <li>{{instruction}}</li>
+    {% endfor %}
+  </ul>
   {% else %}
   <p>Ei ohjeita.</p>
   {% endif %}
@@ -41,7 +46,9 @@
   <p>{{recipe.comments}}</p>
   {% endif %}
 
-  <a role="button" href="{% url 'recipe:index' %}" class="btn btn-secondary">Takaisin</a>
-  <a role="button" href="{% url 'recipe:edit' recipe.id %}" class="btn btn-primary">Muokkaa</a>
+  <div class="mt-4">
+    <a role="button" href="{% url 'recipe:index' %}" class="btn btn-secondary">Takaisin</a>
+    <a role="button" href="{% url 'recipe:edit' recipe.id %}" class="btn btn-primary">Muokkaa</a>
+  </div>
 </div>
 {% endblock %}
