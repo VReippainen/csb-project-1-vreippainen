@@ -10,7 +10,6 @@
   <h3>Kuvaus</h3>
   <p>{{metadata.description}}</p>
 
-
   {% if metadata.recipeYield %}
   <h3>Annoskoko</h3>
   <p>{{metadata.recipeYield }}</p>
@@ -38,7 +37,7 @@
 
   {% if recipe.url %}
   <h3>Lähde</h3>
-  <a href={{recipe.url}} target="blank">{{recipe.url}}</a>
+  <a href={{recipe.url}}>{{recipe.url}}</a>
   {% endif %}
 
   {% if recipe.comments %}
