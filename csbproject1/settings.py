@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
+# Flaw 3:
+# https://dev.to/vladyslavnua/how-to-protect-your-django-secret-and-oauth-keys-53fl
+# from dotenv import load_dotenv
+# load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,6 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Flaw 3:
+# SECRET_KEY = str(os.getenv('SECRET_KEY'))
 SECRET_KEY = "django-insecure-&vtzvc7=tn9vpzrn-kltg6qs(0(=!hj_-04hk7_hz$%mc%r14t"
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -57,7 +64,16 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
+# Flaw 5:
+# Default session cookie age is 2 weeks. Let's shorten the age to 30 minutes
+# SESSION_COOKIE_AGE = 1800
+
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Flaw 5:
+# Add logout redirect url, so that user is taken to login page after logout
+LOGOUT_REDIRECT_URL = "/accounts/login?next=/recipe"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

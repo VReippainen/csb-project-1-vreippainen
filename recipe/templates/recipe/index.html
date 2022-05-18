@@ -1,7 +1,7 @@
 {% extends "./base.html" %}
 
-{% block title %}{{"Reseptit"}}{% endblock %}
-{% block header %}{{"Reseptit"}}{% endblock %}
+{% block title %}{{"Recipes"}}{% endblock %}
+{% block header %}{{"Recipes"}}{% endblock %}
 {% block content %}
 {% if recipe_list %}
 <ul>
@@ -10,8 +10,8 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>Ei reseptejä.</p>
+<p>No recipes.</p>
 {% endif %}
-<a role="button" href="{% url 'recipe:add' %}" class="btn btn-primary">Lisää uusi resepti</a>
+<a role="button" href="{% url 'recipe:add' %}" class="btn btn-primary">Add recipe</a>
 </div>
 {% endblock %}

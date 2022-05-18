@@ -1,3 +1,5 @@
+from attr import validate
+from django.forms import ValidationError
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -8,13 +10,17 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from recipe.utils.scraper import scrape_reciped
 import logging
+from django.contrib import auth
 
 
 def get_active_recipes():
     return Recipe.objects.filter(active=True).order_by("-updated_at")
 
 
-class IndexView(LoginRequiredMixin, generic.ListView):
+# FLAW 4:
+# Unauthenticated user can access recipe list
+# class IndexView(LoginRequiredMixin, generic.ListView):
+class IndexView(generic.ListView):
     template_name = "recipe/index.html"
     context_object_name = "recipe_list"
 

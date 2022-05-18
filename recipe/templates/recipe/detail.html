@@ -7,15 +7,15 @@
   {% if metadata.image %}
   <img src={{metadata.image}} width='100%' />
   {% endif %}
-  <h3>Kuvaus</h3>
+  <h3>Description</h3>
   <p>{{metadata.description}}</p>
 
   {% if metadata.recipeYield %}
-  <h3>Annoskoko</h3>
+  <h3>Meal size</h3>
   <p>{{metadata.recipeYield }}</p>
   {% endif %}
 
-  <h3>Ainekset</h3>
+  <h3>Ingredients</h3>
   {% if metadata.recipeIngredient %}
   <ul>
     {% for ingredient in metadata.recipeIngredient %}
@@ -23,16 +23,16 @@
     {% endfor %}
   </ul>
   {% else %}
-  <p>Ei aineksia</p>
+  <p>No ingredients</p>
   {% endif %}
 
-  <h3>Ohjeet</h3>
+  <h3>Instructions</h3>
   {% if metadata.recipeInstructions %}
   <ul {% for instruction in metadata.recipeInstructions %} <li>{{instruction}}</li>
     {% endfor %}
   </ul>
   {% else %}
-  <p>Ei ohjeita.</p>
+  <p>No instructions.</p>
   {% endif %}
 
   {% if recipe.url %}
@@ -41,13 +41,13 @@
   {% endif %}
 
   {% if recipe.comments %}
-  <h3>Omat kommentit</h3>
+  <h3>Own comments</h3>
   <p>{{recipe.comments}}</p>
   {% endif %}
 
   <div class="mt-4">
-    <a role="button" href="{% url 'recipe:index' %}" class="btn btn-secondary">Takaisin</a>
-    <a role="button" href="{% url 'recipe:edit' recipe.id %}" class="btn btn-primary">Muokkaa</a>
+    <a role="button" href="{% url 'recipe:index' %}" class="btn btn-secondary">Back</a>
+    <a role="button" href="{% url 'recipe:edit' recipe.id %}" class="btn btn-primary">Edit</a>
   </div>
 </div>
 {% endblock %}
