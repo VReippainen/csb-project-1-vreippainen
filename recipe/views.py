@@ -17,10 +17,7 @@ def get_active_recipes():
     return Recipe.objects.filter(active=True).order_by("-updated_at")
 
 
-# FLAW 4:
-# Unauthenticated user can access recipe list
-# class IndexView(LoginRequiredMixin, generic.ListView):
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = "recipe/index.html"
     context_object_name = "recipe_list"
 
@@ -31,7 +28,10 @@ class IndexView(generic.ListView):
         return get_active_recipes().order_by("-updated_at")
 
 
-class DetailView(LoginRequiredMixin, generic.DetailView):
+# FLAW 4:
+# Unauthenticated user can access recipe list
+# class DetailView(LoginRequiredMixin, generic.ListView):
+class DetailView(generic.DetailView):
     model = Recipe
     template_name = "recipe/detail.html"
     logger = logging.getLogger(__name__)
