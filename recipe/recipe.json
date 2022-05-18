@@ -1,0 +1,39 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Parsapasta",
+  "image": "https://public.keskofiles.com/f/recipe/PI4_16_parsapasta?w=2400&fit=crop",
+  "description": "Suikaloitu vihreä parsa ja tuore nauhapasta sekoittuvat kauniisti keväisessä pastassa \r\nTämäkin resepti vain n. 2,90€/annos*.",
+  "totalTime": "PT30M",
+  "recipeCategory": "Pääruoat",
+  "recipeYield": "3 annosta",
+  "recipeIngredient": [
+    "1 nippu tuoretta vihreää parsaa",
+    "1 ps Pirkka tagliatelle tuorepastaa",
+    "1/2 dl pinjansiemeniä",
+    "1 dl vettä",
+    "1/2 tl suolaa",
+    "1 rkl sitruunanmehua",
+    "1 rkl sitruunankuorta raastettuna",
+    "2 rkl Pirkka ekstra-neitsytoliiviöljyä",
+    "1 dl Pirkka Parhaat parmesaania raastettuna",
+    " ripaus mustapippuria"
+  ],
+  "recipeInstructions": "Huuhtele parsat. Leikkaa tai napsauta parsojen puumainen kantaosa pois (noin 2 cm). Voit kuoria parsat ohuelti mikäli kuori tuntuu paksulta ja varren tyviosa puumaiselta. Suikaloi parsat varovasti ohuiksi suikaleiksi kuorimaveitsen avulla. Keitä tuorepasta pakkauksen ohjeen mukaan suolalla maustetussa vedessä ja valuta keitinvesi pois.\r\nPaahda pinjansiemeniä hetki pinnoitetussa kattilassa ilman rasvaa. Siirrä pinjansiemenet toiseen astiaan. Mittaa kattilaan vesi ja kuumenna kiehuvaksi. Lisää kiehuvaan veteen suola ja parsasuikaleet. Kypsennä 1-2 minuuttia samalla sekoittaen.\r\nLisää kattilaan sitruunanmehu, -kuori ja tuorepasta. Sekoita pastaan oliiviöljy, parmesaaniraaste ja pinjansiemenet. Tarkista maku. Lisää tarvittaessa suolaa ja pippuria. Tarjoa parsapasta välittömästi parmesaaniraasteen kanssa.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "3.7",
+    "bestRating": 5,
+    "worstRating": 0,
+    "reviewCount": "82"
+  },
+  "commentCount": 4,
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "servingSize": "300g",
+    "calories": "410",
+    "fatContent": "20 g",
+    "proteinContent": "17 g",
+    "carbohydrateContent": "43 g"
+  }
+}

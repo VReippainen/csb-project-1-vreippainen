@@ -1,0 +1,17 @@
+{% extends "./base.html" %}
+
+{% block title %}{{"Recipes"}}{% endblock %}
+{% block header %}{{"Recipes"}}{% endblock %}
+{% block content %}
+{% if recipe_list %}
+<ul>
+  {% for recipe in recipe_list %}
+  <li> <a href="{% url 'recipe:detail' recipe.id %}">{{ recipe.title }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No recipes.</p>
+{% endif %}
+<a role="button" href="{% url 'recipe:add' %}" class="btn btn-primary">Add recipe</a>
+</div>
+{% endblock %}

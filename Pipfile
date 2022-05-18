@@ -7,9 +7,17 @@ name = "pypi"
 selenium = "*"
 requests = "*"
 beautifulsoup4 = "*"
-django = "*"
+django = "==4.0.1"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
+extruct = "*"
 
 [dev-packages]
+black = "*"
+beautify = "*"
 
 [requires]
 python_version = "3.10"
+
+[pipenv]
+allow_prereleases = true
